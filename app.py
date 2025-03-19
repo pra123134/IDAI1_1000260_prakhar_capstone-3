@@ -110,38 +110,49 @@ if st.button("⚙️ Get AI Insights for Peak Hour Management"):
     st.text_area("📋 AI-Powered Peak Hour Insights:", get_ai_response(prompt), height=300)
 
 # 🎓 **AI-Powered Training Modules**
-st.header("🎓 AI-Powered Training Modules")
+st.header("📚 AI-Powered Training Modules")
 
-if st.button("📚 Generate AI Training Simulation"):
-    prompt = """
-    Generate an AI-powered training simulation for restaurant employees on:
-    - Handling customer complaints
-    - Upselling techniques
-    - Improving dish preparation speed
+training_topic = st.selectbox("🎯 Select Training Simulation", [
+    "Handling Customer Complaints",
+    "Upselling Techniques",
+    "Faster Dish Preparation",
+    "Conflict Resolution Among Staff"
+])
+
+if st.button("📖 Start AI Training Module"):
+    prompt = f"""
+    Generate an AI-powered training module simulation for restaurant employees on:
+    - {training_topic}
     
     Include:
-    - Interactive scenarios
-    - AI-generated feedback
-    - Performance scoring
-    - Rewards for effective learning
+    - Realistic training scenario
+    - Best practices and strategies
+    - AI-generated feedback and tips
+    - Scoring system for employee performance
+    - Reward-based learning approach
     """
     st.text_area("📋 AI-Generated Training Module:", get_ai_response(prompt), height=300)
 
 # 🏅 **Team Challenges**
-st.header("🏅 AI-Generated Team Challenges")
+st.header("👥 Team-Based Challenges")
 
-if st.button("🏆 Generate AI Team Challenge"):
-    prompt = """
-    Create an AI-generated team challenge for restaurant staff. Focus on:
-    - Best team coordination
-    - Least food waste
-    - Highest customer satisfaction ratings
+team_challenge = st.selectbox("🏆 Select a Team Challenge", [
+    "Best Team Coordination",
+    "Least Food Waste",
+    "Most Customer Compliments",
+    "Fastest Order Fulfillment"
+])
+
+if st.button("🚀 Start AI Team Challenge"):
+    prompt = f"""
+    Generate a team-based restaurant challenge for employees:
+    - Challenge: {team_challenge}
     
     Include:
     - Challenge description
-    - Scoring system
-    - AI-powered performance tracking
-    - Rewards for top-performing teams
+    - Rules and scoring system
+    - AI-generated insights for improvement
+    - Reward system for the best-performing teams
     """
     st.text_area("📋 AI-Generated Team Challenge:", get_ai_response(prompt), height=300)
 
