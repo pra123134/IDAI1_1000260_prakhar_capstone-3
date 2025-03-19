@@ -19,142 +19,87 @@ def get_ai_response(prompt, fallback_message="⚠️ AI response unavailable. Pl
         return f"⚠️ AI Error: {str(e)}\n{fallback_message}"
 
 # ✅ Streamlit UI Configuration
-st.set_page_config(page_title="Gamified Decision-Making for Smart Restaurants", layout="wide")
+st.set_page_config(page_title="AI Gamified Smart Restaurant Management", layout="wide")
 
-st.title("🎮 Gamified Decision-Making for Smart Restaurant Management")
-st.write("🚀 Earn points for optimizing decisions and tackling AI-generated challenges.")
+st.title("🍽️ AI Gamified Smart Restaurant Management with Gemini 1.5 Pro")
+st.write("🚀 Optimize management, training, and customer engagement through AI-driven gamification.")
 
-# 🎯 **Decision-Making Challenges**
-st.header("🧠 Decision-Making Challenges")
+# 🎯 **Manager Gamification**
+st.header("🏆 Manager Decision-Making Challenges")
 
-challenge_type = st.selectbox("🎯 Select a Challenge Type", [
-    "High Waste Reduction",
-    "Low Sales Optimization",
-    "Peak Hour Efficiency",
-    "Staff Shortages Management"
-])
-
-if st.button("⚡ Generate AI Challenge"):
+decision_challenge = st.text_area("🧠 Enter a business challenge (e.g., High Waste, Low Sales)")
+if st.button("⚡ Generate Optimization Challenge"):
     prompt = f"""
-    Generate a gamified decision-making challenge for restaurant managers dealing with:
-    - {challenge_type}
-    
+    Provide an AI-driven decision-making challenge for a restaurant manager.
+    Challenge: {decision_challenge}
     Include:
-    - Scenario description
     - Optimization strategies
-    - Scoring system
-    - Performance evaluation metrics
-    - AI-generated feedback and reward system
+    - Performance tracking
+    - Points system for improvements
     """
-    st.text_area("📋 AI-Generated Challenge:", get_ai_response(prompt), height=300)
+    st.text_area("🎯 AI Challenge:", get_ai_response(prompt), height=300)
 
-# 🏆 **Scenario Simulations**
-st.header("📊 AI-Generated Scenario Simulations")
+# 📊 **Staff Training & Performance**
+st.header("📚 AI-Powered Staff Training & Challenges")
 
-simulation_topic = st.selectbox("🔍 Choose a Scenario Simulation", [
-    "Predict Staff Shortages",
-    "Manage Inventory Issues",
-    "Forecast Demand Variations",
-    "Handle Emergency Situations"
-])
-
-if st.button("🔄 Generate Scenario Simulation"):
+training_type = st.selectbox("📖 Select Training Type", ["Peak Hour Handling", "Waste Reduction", "Efficient Table Management"])
+if st.button("🚀 Start Training Challenge"):
     prompt = f"""
-    Generate a virtual case study to simulate:
-    - {simulation_topic}
-    
-    Provide:
-    - A realistic restaurant scenario
-    - Decision-making options
-    - AI-driven hints and insights
-    - Scoring based on managerial decisions
-    - Rewards for optimal solutions
-    """
-    st.text_area("📋 AI-Generated Scenario:", get_ai_response(prompt), height=300)
-
-# 🌍 **Sustainability Challenges**
-st.header("🌱 AI-Driven Sustainability Challenges")
-
-sustainability_focus = st.selectbox("♻️ Choose a Sustainability Focus", [
-    "Waste Reduction",
-    "Energy Efficiency",
-    "Sustainable Sourcing",
-    "Eco-Friendly Packaging"
-])
-
-if st.button("🌎 Generate Sustainability Challenge"):
-    prompt = f"""
-    Generate an AI-driven sustainability challenge for restaurant managers focusing on:
-    - {sustainability_focus}
-    
+    Generate an AI-powered training module for restaurant staff.
+    Training Type: {training_type}
     Include:
-    - Environmental impact assessment
-    - AI recommendations for sustainability
-    - Reward system for eco-friendly choices
-    - Long-term sustainability tracking metrics
+    - Key skills
+    - Interactive challenge
+    - Performance leaderboard criteria
     """
-    st.text_area("📋 AI-Generated Sustainability Challenge:", get_ai_response(prompt), height=300)
+    st.text_area("🎓 Training Module:", get_ai_response(prompt), height=300)
 
-# 📊 **Dynamic AI Adjustments for Peak Hours**
-st.header("⏳ Dynamic AI Adjustments for Peak Hours")
+# 🍽️ **Customer Engagement Gamification**
+st.header("🎮 AI-Powered Customer Challenges")
 
-if st.button("⚙️ Get AI Insights for Peak Hour Management"):
-    prompt = """
-    Analyze peak hour trends and suggest AI-driven strategies for managers to:
-    - Balance workload and demand
-    - Optimize staffing during peak hours
-    - Improve table turnover rates
-    - Enhance customer satisfaction during rush hours
-    - Implement AI-driven rewards for efficiency
-    """
-    st.text_area("📋 AI-Powered Peak Hour Insights:", get_ai_response(prompt), height=300)
-
-# 🎓 **AI-Powered Training Modules**
-st.header("📚 AI-Powered Training Modules")
-
-training_topic = st.selectbox("🎯 Select Training Simulation", [
-    "Handling Customer Complaints",
-    "Upselling Techniques",
-    "Faster Dish Preparation",
-    "Conflict Resolution Among Staff"
-])
-
-if st.button("📖 Start AI Training Module"):
+customer_challenge = st.selectbox("🎯 Select a Customer Challenge", ["Try 3 New Dishes", "Rate Dishes for Points", "Order a Mystery Dish", "Social Media Engagement"])
+if st.button("🎁 Generate Customer Challenge"):
     prompt = f"""
-    Generate an AI-powered training module simulation for restaurant employees on:
-    - {training_topic}
-    
+    Create an AI-powered customer challenge to enhance engagement.
+    Challenge: {customer_challenge}
     Include:
-    - Realistic training scenario
-    - Best practices and strategies
-    - AI-generated feedback and tips
-    - Scoring system for employee performance
-    - Reward-based learning approach
-    """
-    st.text_area("📋 AI-Generated Training Module:", get_ai_response(prompt), height=300)
-
-# 🏅 **Team Challenges**
-st.header("👥 Team-Based Challenges")
-
-team_challenge = st.selectbox("🏆 Select a Team Challenge", [
-    "Best Team Coordination",
-    "Least Food Waste",
-    "Most Customer Compliments",
-    "Fastest Order Fulfillment"
-])
-
-if st.button("🚀 Start AI Team Challenge"):
-    prompt = f"""
-    Generate a team-based restaurant challenge for employees:
-    - Challenge: {team_challenge}
-    
-    Include:
+    - Rewards system
     - Challenge description
-    - Rules and scoring system
-    - AI-generated insights for improvement
-    - Reward system for the best-performing teams
+    - AI-driven personalization
     """
-    st.text_area("📋 AI-Generated Team Challenge:", get_ai_response(prompt), height=300)
+    st.text_area("🏆 Customer Challenge:", get_ai_response(prompt), height=300)
+
+# 🔄 **System Gamification & AI Performance Monitoring**
+st.header("📡 AI-Driven System Optimization & Monitoring")
+
+system_metric = st.selectbox("⚙️ Select System Metric", ["Order Processing Speed", "Inventory Efficiency", "Energy & Waste Reduction"])
+if st.button("📈 Generate AI System Monitoring Challenge"):
+    prompt = f"""
+    Develop an AI-based system gamification challenge.
+    Metric: {system_metric}
+    Include:
+    - AI tracking mechanisms
+    - Performance scoring
+    - Self-optimization recommendations
+    """
+    st.text_area("📊 System Challenge:", get_ai_response(prompt), height=300)
+
+# 🚀 **Top 10 AI Features in Smart Restaurant Management**
+st.header("🔟 Top 10 AI Gamification Features")
+
+top_ai_features = """
+1️⃣ AI Decision-Making Challenges for Managers
+2️⃣ Predictive AI Bottleneck Simulations
+3️⃣ Sustainability Challenges for Managers
+4️⃣ AI-Powered Peak Hour Insights
+5️⃣ Staff Training Modules with AI-Based Evaluation
+6️⃣ Real-Time Staff Performance Challenges
+7️⃣ AI-Powered Personalized Customer Challenges
+8️⃣ AI-Based System Performance Monitoring
+9️⃣ AI-Driven Predictive System Challenges
+🔟 AI Self-Learning & Leaderboard Tracking
+"""
+st.text_area("🌟 Top AI Features:", top_ai_features, height=300)
 
 # ✅ Footer
 st.write("🚀 Powered by Gemini 1.5 Pro with GenAI")
